@@ -1,5 +1,8 @@
 import 'dart:developer';
 
+
+import 'package:daibetes/screen/onboarding_1.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(bodyMedium: GoogleFonts.poppins()),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const Onboarding1(),
     );
   }
 }
@@ -124,8 +127,11 @@ class _MyHomePageState extends State<MyHomePage> {
               tileColor: HexColor('0e1326'),
               title: Text(
                 '${reading['glucoseLevel'] ?? ''} mg/dL - ${reading['readingType'] ?? ''}',
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.amber),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: reading['glucoseLevel'] > 180
+                        ? Colors.red
+                        : Colors.amber),
               ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
