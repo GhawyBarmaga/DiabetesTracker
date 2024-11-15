@@ -45,10 +45,12 @@ class _StatsPageState extends State<StatsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final glucoseRaises =
-        readinlist.map((r) => r['glucoseLevel']).where((r) => r > 180).length;
-    final avgGlucose =
-        readinlist.map((r) => r['glucoseLevel']).reduce((a, b) => a + b) /
+    final glucoseRaises = readinlist.isEmpty
+        ? 0
+        : readinlist.map((r) => r['glucoseLevel']).where((r) => r > 180).length;
+    final avgGlucose = readinlist.isEmpty
+        ? 0
+        : readinlist.map((r) => r['glucoseLevel']).reduce((a, b) => a + b) /
             readinlist.length;
     final lastWeekReadings = readinlist
         .where((r) => r['timestamp']
@@ -84,8 +86,7 @@ class _StatsPageState extends State<StatsPage> {
                   children: [
                     StatCard(
                       title: 'The number of times diabetes rises',
-                      value: '${glucoseRaises
-                      .toString()} ',
+                      value: '${glucoseRaises.toString()} ',
                     ),
                     const SizedBox(height: 16),
                     StatCard(

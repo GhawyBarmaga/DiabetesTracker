@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-
 import 'package:daibetes/screen/onboarding_1.dart';
 
 import 'package:flutter/material.dart';
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(bodyMedium: GoogleFonts.poppins()),
+        textTheme: TextTheme(bodyMedium: GoogleFonts.openSans()),
         useMaterial3: true,
       ),
       home: const Onboarding1(),
@@ -95,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: HexColor('1C274C'),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: HexColor('1C274C'),
         title: const Text(
