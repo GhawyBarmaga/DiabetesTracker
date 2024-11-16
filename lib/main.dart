@@ -166,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+//======================================Show Dialog========================================
   void _showAddReadingDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -239,6 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+  //============================================================================================
 }
-//======================================================================
+
 
